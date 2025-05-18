@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <title>Sign-Up Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, darkblue, #ba55d3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            border:none;
+        }
+
+
+        .form-container h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+        }
+
+        .form-floating {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .register-btn {
+            background-color: #28a745;
+            color: #ffffff;
+        }
+
+        .register-btn:hover {
+            background-color: #218838;
+        }
+
+        .reset-btn {
+            background-color: #ffc107;
+            color: #ffffff;
+        }
+
+        .reset-btn:hover {
+            background-color: #e0a800;
+        }
+
+        .cancel-btn {
+            background-color: #dc3545;
+            color: #ffffff;
+        }
+
+        .cancel-btn:hover {
+            background-color: #c82333;
+        }
+
+        .form-group a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #007bff;
+        }
+
+        .form-group a:hover {
+            text-decoration: underline;
+        }
+
+        .col {
+            margin-top: 20px;
+        }
+
+        .form-control.no-border {
+            border: none;
+            border-bottom: 2px solid #a7a;
+        }
+
+        .form-control no-border {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2><b>REGISTER</b></h2>
+        <form action="register" method="post">
+            {% csrf_token %}
+
+            <div class="form-floating col">
+                <input type="text" class="form-control no-border shadow-none" id="name" name="uname" placeholder="user name" required>
+                <label for="name">Full Name</label>
+            </div>
+
+            <div class="form-floating col">
+                <input type="password" class="form-control no-border shadow-none" id="password" name="upass" placeholder="********" required>
+                <label for="password">Password</label>
+            </div>
+
+            <div class="form-floating col">
+                <input type="email" class="form-control no-border shadow-none" id="email" name="uemail" placeholder="email" required>
+                <label for="email">Email Address</label>
+            </div>
+
+            <div class="form-floating col">
+                <input type="number" class="form-control no-border shadow-none" id="mobile" name="mobile" placeholder="Mobile Number" required>
+                <label for="mobile">Mobile</label>
+            </div>
+
+            <div class="form-group mt-4">
+                <input type="submit" value="Register" class="btn register-btn">
+                <input type="reset" value="Clear" class="btn reset-btn">
+                <button type="button" class="btn cancel-btn" onclick="window.location.href='http://127.0.0.1:8000/';">Cancel</button>
+            </div>
+
+
+        </form>
+    </div>
+</body>
+</html>

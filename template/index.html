@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+<title>Travelix</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Travelix Project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<link href="{%static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{%static 'styles/about_responsive.css'%}">
+
+</head>
+<style>
+
+/* Search Section Styles */
+
+
+.card {
+    border: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: translateY(-5px);
+}
+
+/* Form Styles */
+.form-control {
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    background: #fff;
+    border-color: #007bff;
+}
+
+.input-group-text {
+    background: #f8f9fa;
+    border: none;
+}
+
+/* Button Styles */
+.btn-primary {
+    background: linear-gradient(45deg, #007bff, #00bcd4);
+    border: none;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, #0056b3, #008ba3);
+}
+
+/* Animation Keyframes */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes reveal {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Text Effects */
+.reveal-text {
+    position: relative;
+    overflow: hidden;
+}
+
+.reveal-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2d3436;
+    transform: translateX(-100%);
+    animation: reveal 1.5s ease forwards;
+}
+
+/* Rotating Text Animation */
+.rotating-text span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px) rotateX(90deg);
+    animation: rotateIn 0.8s ease forwards;
+}
+
+@keyframes rotateIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+/* Background Effects */
+.zoom-bg {
+    animation: zoomBg 20s infinite alternate;
+}
+
+@keyframes zoomBg {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .parallax-section {
+        background-attachment: scroll;
+    }
+
+    .navbar {
+        padding: 1rem 0;
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+
+    .btn-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Card Shadows and Effects */
+.shadow-hover {
+    transition: box-shadow 0.3s ease;
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Form Focus Effects */
+.form-control:focus {
+    box-shadow: none;
+    border-color: #007bff;
+}
+
+.form-control:focus + .input-group-text {
+    border-color: #007bff;
+}
+
+/* Gradient Text */
+
+ .search-section {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            padding: 5rem 0;
+        }
+
+        .card {
+            transition: transform 0.3s ease;
+            border: none;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-control {
+            border: none;
+            padding: 0.9rem 1rem;
+            background: #f8f9fa;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #007bff, #00bcd4);
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #0056b3, #008ba3);
+        }
+           #center-alert {
+            width: 50%;               /* Adjust width as needed */
+            margin: 100px auto;       /* Auto margin for horizontal centering */
+            text-align: center;       /* Center the text inside the alert */
+        }
+    </style>
+
+<body>
+
+<div class="super_container">
+	
+	<!-- Header -->
+
+	<header class="header">
+
+		<!-- Top Bar -->
+
+		<div class="top_bar">
+			<div class="container">
+				<div class="col d-flex flex-row">
+						<div class="phone">+45 345 3324 56789</div>
+						<div class="social">
+							<ul class="social_list">
+								<li class="social_list_item"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+								<li class="social_list_item"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+						<div class="user_box ml-auto">
+							<div class="user_box_login user_box_link"><a href="http://127.0.0.1:8000/signin/">login</a></div>
+							<div class="user_box_register user_box_link"><a href="http://127.0.0.1:8000/signup/">register</a></div>
+						</div>
+					</div>
+			</div>		
+		</div>
+
+		<!-- Main Navigation -->
+
+		<nav class="main_nav">
+			<div class="container">
+				<div class="row">
+					<div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
+						<div class="logo_container">
+							<div class="logo"><a href="#"><img src="{% static 'images/logo1.png' %}" alt="">travelix</a></div>
+						</div>
+						<div class="main_nav_container ml-auto">
+							<ul class="main_nav_list">
+								<li class="main_nav_item"><a href="http://127.0.0.1:8000/">home</a></li>
+								<li class="main_nav_item"><a href="http://127.0.0.1:8000/about">about us</a></li>
+								<li class="main_nav_item"><a href="http://127.0.0.1:8000/offers">offers</a></li>
+								<li class="main_nav_item"><a href="http://127.0.0.1:8000/blog">news</a></li>
+								<li class="main_nav_item"><a href="http://127.0.0.1:8000/contact">contact</a></li>
+							</ul>
+						</div>
+						<div class="content_search ml-lg-0 ml-auto">
+							<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+							width="17px" height="17px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+								<g>
+									<g>
+										<g>
+											<path class="mag_glass" fill="#FFFFFF" d="M78.438,216.78c0,57.906,22.55,112.343,63.493,153.287c40.945,40.944,95.383,63.494,153.287,63.494
+											s112.344-22.55,153.287-63.494C489.451,329.123,512,274.686,512,216.78c0-57.904-22.549-112.342-63.494-153.286
+											C407.563,22.549,353.124,0,295.219,0c-57.904,0-112.342,22.549-153.287,63.494C100.988,104.438,78.439,158.876,78.438,216.78z
+											M119.804,216.78c0-96.725,78.69-175.416,175.415-175.416s175.418,78.691,175.418,175.416
+											c0,96.725-78.691,175.416-175.416,175.416C198.495,392.195,119.804,313.505,119.804,216.78z"/>
+										</g>
+									</g>
+									<g>
+										<g>
+											<path class="mag_glass" fill="#FFFFFF" d="M6.057,505.942c4.038,4.039,9.332,6.058,14.625,6.058s10.587-2.019,14.625-6.058L171.268,369.98
+											c8.076-8.076,8.076-21.172,0-29.248c-8.076-8.078-21.172-8.078-29.249,0L6.057,476.693
+											C-2.019,484.77-2.019,497.865,6.057,505.942z"/>
+										</g>
+									</g>
+								</g>
+							</svg>
+						</div>
+
+						<form id="search_form" class="search_form bez_1">
+							<input type="search" class="search_content_input bez_1">
+						</form>
+
+						<div class="hamburger">
+							<i class="fa fa-bars trans_200"></i>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</nav>
+
+	</header>
+
+	<div class="menu trans_500">
+		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+			<div class="menu_close_container"><div class="menu_close"></div></div>
+			<div class="logo menu_logo"><a href="#"><img src="{%static 'images/logo1.png'%}" alt=""></a></div>
+			<ul>
+				<li class="menu_item"><a href="#">home</a></li>
+				<li class="menu_item"><a href="about.html">about us</a></li>
+				<li class="menu_item"><a href="offers.html">offers</a></li>
+				<li class="menu_item"><a href="blog.html">news</a></li>
+				<li class="menu_item"><a href="contact.html">contact</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Home -->
+
+	<div class="home">
+		
+		<!-- Home Slider -->
+
+		<div class="home_slider_container">
+			
+			<div class="owl-carousel owl-theme home_slider">
+
+				<!-- Slider Item -->
+				<div class="owl-item home_slider_item">
+					<!-- Image by https://unsplash.com/@anikindimitry -->
+					<div class="home_slider_background" style="background-image:url({%static 'images/home_slider.jpg' %})"></div>
+
+					<div class="home_slider_content text-center">
+						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
+							<h1>discover</h1>
+							<h1>the world</h1>
+							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slider Item -->
+				<div class="owl-item home_slider_item">
+					<div class="home_slider_background" style="background-image:url({%static 'images/home_slider1.jpg'%})"></div>
+
+					<div class="home_slider_content text-center">
+						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
+							<h1>discover</h1>
+							<h1>the world</h1>
+							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slider Item -->
+				<div class="owl-item home_slider_item">
+					<div class="home_slider_background" style="background-image:url({%static 'images/home_slider2.jpg'%})"></div>
+
+					<div class="home_slider_content text-center">
+						<div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
+							<h1>discover</h1>
+							<h1>the world</h1>
+							<div class="button home_slider_button"><div class="button_bcg"></div><a href="#">explore now<span></span><span></span><span></span></a></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			
+			<!-- Home Slider Nav - Prev -->
+			<div class="home_slider_nav home_slider_prev">
+				<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+					width="28px" height="33px" viewBox="0 0 28 33" enable-background="new 0 0 28 33" xml:space="preserve">
+					<defs>
+						<linearGradient id='home_grad_prev'>
+							<stop offset='0%' stop-color='#fa9e1b'/>
+							<stop offset='100%' stop-color='#8d4fff'/>
+						</linearGradient>
+					</defs>
+					<path class="nav_path" fill="#F3F6F9" d="M19,0H9C4.029,0,0,4.029,0,9v15c0,4.971,4.029,9,9,9h10c4.97,0,9-4.029,9-9V9C28,4.029,23.97,0,19,0z
+					M26,23.091C26,27.459,22.545,31,18.285,31H9.714C5.454,31,2,27.459,2,23.091V9.909C2,5.541,5.454,2,9.714,2h8.571
+					C22.545,2,26,5.541,26,9.909V23.091z"/>
+					<polygon class="nav_arrow" fill="#F3F6F9" points="15.044,22.222 16.377,20.888 12.374,16.885 16.377,12.882 15.044,11.55 9.708,16.885 11.04,18.219 
+					11.042,18.219 "/>
+				</svg>
+			</div>
+			
+			<!-- Home Slider Nav - Next -->
+			<div class="home_slider_nav home_slider_next">
+				<svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				width="28px" height="33px" viewBox="0 0 28 33" enable-background="new 0 0 28 33" xml:space="preserve">
+					<defs>
+						<linearGradient id='home_grad_next'>
+							<stop offset='0%' stop-color='#fa9e1b'/>
+							<stop offset='100%' stop-color='#8d4fff'/>
+						</linearGradient>
+					</defs>
+				<path class="nav_path" fill="#F3F6F9" d="M19,0H9C4.029,0,0,4.029,0,9v15c0,4.971,4.029,9,9,9h10c4.97,0,9-4.029,9-9V9C28,4.029,23.97,0,19,0z
+				M26,23.091C26,27.459,22.545,31,18.285,31H9.714C5.454,31,2,27.459,2,23.091V9.909C2,5.541,5.454,2,9.714,2h8.571
+				C22.545,2,26,5.541,26,9.909V23.091z"/>
+				<polygon class="nav_arrow" fill="#F3F6F9" points="13.044,11.551 11.71,12.885 15.714,16.888 11.71,20.891 13.044,22.224 18.379,16.888 17.048,15.554 
+				17.046,15.554 "/>
+				</svg>
+			</div>
+
+			<!-- Home Slider Dots -->
+
+			<div class="home_slider_dots">
+				<ul id="home_slider_custom_dots" class="home_slider_custom_dots">
+					<li class="home_slider_custom_dot active"><div></div>01.</li>
+					<li class="home_slider_custom_dot"><div></div>02.</li>
+					<li class="home_slider_custom_dot"><div></div>03.</li>
+				</ul>
+			</div>
+			
+		</div>
+
+	</div>
+
+<!-- Search Section -->
+<section class="search-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-14">
+                <div class="text-center text-white mb-5">
+                    <h2 class="display-4 fw-bold">Find Your Perfect Package</h2>
+                    <p class="lead">Search through our exclusive travel packages</p>
+                </div>
+
+                <!-- Search Form -->
+                <form method="POST" class="bg-white p-5 rounded-3 shadow-lg">
+                    {% csrf_token %}
+                    <div class="row g-4">
+                        <!-- Duration -->
+                        <div class="col-md-6">
+                            <div class="card p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-calendar-alt fa-2x text-primary me-3"></i>
+                                    <label for="numDays" class="form-label h5 mb-0">Duration</label>
+                                </div>
+                                <input type="number" class="form-control form-control-lg"
+                                       id="numDays" name="numDays" min="1" placeholder="Number of Days">
+                            </div>
+                        </div>
+
+                        <!-- Places -->
+                        <div class="col-md-6">
+                            <div class="card p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-map-marked-alt fa-2x text-success me-3"></i>
+                                    <label for="numPlaces" class="form-label h5 mb-0">Destinations</label>
+                                </div>
+                                <input type="number" class="form-control form-control-lg"
+                                       id="numPlaces" name="numPlaces" min="1" placeholder="Number of Places">
+                            </div>
+                        </div>
+
+                        <!-- VIP Fare -->
+                        <div class="col-md-6">
+                            <div class="card p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-crown fa-2x text-warning me-3"></i>
+                                    <label for="vipFare" class="form-label h5 mb-0">VIP Package</label>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-text">Rs</span>
+                                    <input type="number" class="form-control form-control-lg"
+                                           id="vipFare" name="vipFare" min="0" placeholder="Maximum VIP Fare">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- General Fare -->
+                        <div class="col-md-6">
+                            <div class="card p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-user-friends fa-2x text-info me-3"></i>
+                                    <label for="generalFare" class="form-label h5 mb-0">Standard Package</label>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-text">Rs</span>
+                                    <input type="number" class="form-control form-control-lg"
+                                           id="generalFare" name="generalFare" min="0" placeholder="Maximum General Fare">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Search Button -->
+                        <div class="col-12 text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">
+                                <i class="fas fa-search me-2"></i>Search Packages
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+               <!-- Search Results -->
+
+            </div>
+        </div>
+    </div>
+</section>
+<!--serch section ends-->
+
+	<!-- Intro -->
+
+<div class="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="intro_title text-center">We have the best tours</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <div class="intro_text text-center">
+                    <p>"Discover. Explore. Experience. We offer the best tours—just choose your package and get ready for the adventure of a lifetime!" </p>
+                </div>
+            </div>
+        </div>
+        <div class="row intro_items">
+
+            <!-- Intro Item -->
+				{% if packages %}
+				<div class="mt-5">
+					<div class="card bg-white">
+						<div class="card-body">
+							<h3 class="text-dark mb-4">Available Packages</h3>
+							<div class="row g-4">
+								{% for package in packages %}
+									<div class="col-md-4 mb-4">
+										<div class="card h-100 shadow-hover">
+											<div class="card-body">
+												<!-- Display package image -->
+											   <img src="{% static 'images/' %}{{package.pimage}}" alt="{{ package.pcname }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+	<!--											                                            <h5 class="card-title text-primary mt-3">{{ package.pcname }}</h5>-->
+												<!-- Display tname -->
+												<h6 class="text-secondary">{{ package.tname }}</h6>
+
+												<p class="card-text">{{ package.description }}</p>
+												<ul class="list-unstyled">
+													<li class="mb-2">
+														<i class="fas fa-calendar-alt text-primary me-2"></i>
+														{{ package.noofday }} Days
+													</li>
+													<li class="mb-2">
+														<i class="fas fa-map-marker-alt text-success me-2"></i>
+														{{ package.noofplace }} Places
+													</li>
+													<li class="mb-2">
+														<i class="fas fa-tag text-info me-2"></i>
+														Rs :- {{ package.gfare }}
+													</li>
+													<li class="mb-2">
+														<i class="fas fa-star text-warning me-2"></i>
+														Rs :- {{ package.vfare }}
+													</li>
+													<!-- Display transport with conditional icons -->
+												<li class="mb-2">
+   													 <i class="fas fa-route text-success me-2"></i>
+   														 {{ package.transport }}
+												</li>
+
+												</ul>
+<!--												<div class="text-center mt-3">-->
+<!--													<a href="#" class="btn btn-primary">-->
+<!--														<i class="fas fa-info-circle me-2"></i>View Details-->
+<!--													</a>-->
+<!--												</div>-->
+											</div>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				{% else %}
+				   <div id="center-alert">
+					<div class="alert alert-info text-center">
+						<i class="fas fa-info-circle me-2"></i>
+						No packages found matching your criteria. Please try different search parameters.
+					</div>
+				</div>
+
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
+
+	<!-- CTA -->
+
+	<div class="cta">
+		<!-- Image by https://unsplash.com/@thanni -->
+		<div class="cta_background" style="background-image:url({%static 'images/cta.jpg'%})"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col">
+
+					<!-- CTA Slider -->
+
+					<div class="cta_slider_container">
+						<div class="owl-carousel owl-theme cta_slider">
+
+							<!-- CTA Slider Item -->
+							<div class="owl-item cta_item text-center">
+								<div class="cta_title">maldives deluxe package</div>
+								<div class="rating_r rating_r_4">
+									<i></i>
+									<i></i>
+									<i></i>
+									<i></i>
+									<i></i>
+								</div>
+								<p class="cta_text">Indulge in luxury with overwater villas, crystal-clear waters, and breathtaking sunsets in the tropical paradise of the Maldives.</p>
+								<div class="button cta_button"><div class="button_bcg"></div><a href="#">book now<span></span><span></span><span></span></a></div>
+							</div>
+
+							<!-- CTA Slider Item -->
+							<div class="owl-item cta_item text-center">
+								<div class="cta_title">Bali Bliss Retreat</div>
+								<div class="rating_r rating_r_4">
+									<i></i>
+									<i></i>
+									<i></i>
+									<i></i>
+									<i></i>
+								</div>
+								<p class="cta_text">Experience Bali’s serene beaches, lush rice terraces, and rich cultural heritage for the ultimate island getaway.</p>
+								<div class="button cta_button"><div class="button_bcg"></div><a href="#">book now<span></span><span></span><span></span></a></div>
+							</div>
+
+							<!-- CTA Slider Item -->
+							<div class="owl-item cta_item text-center">
+								<div class="cta_title">Santorini Sunset Getaway</div>
+								<div class="rating_r rating_r_4">
+									<i></i>
+									<i></i>
+									<i></i>
+									<i></i>
+									<i></i>
+								</div>
+								<p class="cta_text">Witness magical sunsets, explore white-washed villages, and relax by the Aegean Sea in stunning Santorini.</p>
+								<div class="button cta_button"><div class="button_bcg"></div><a href="#">book now<span></span><span></span><span></span></a></div>
+							</div>
+
+						</div>
+
+						<!-- CTA Slider Nav - Prev -->
+						<div class="cta_slider_nav cta_slider_prev">
+							<svg version="1.1" id="Layer_4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+								width="28px" height="33px" viewBox="0 0 28 33" enable-background="new 0 0 28 33" xml:space="preserve">
+								<defs>
+									<linearGradient id='cta_grad_prev'>
+										<stop offset='0%' stop-color='#fa9e1b'/>
+										<stop offset='100%' stop-color='#8d4fff'/>
+									</linearGradient>
+								</defs>
+								<path class="nav_path" fill="#F3F6F9" d="M19,0H9C4.029,0,0,4.029,0,9v15c0,4.971,4.029,9,9,9h10c4.97,0,9-4.029,9-9V9C28,4.029,23.97,0,19,0z
+								M26,23.091C26,27.459,22.545,31,18.285,31H9.714C5.454,31,2,27.459,2,23.091V9.909C2,5.541,5.454,2,9.714,2h8.571
+								C22.545,2,26,5.541,26,9.909V23.091z"/>
+								<polygon class="nav_arrow" fill="#F3F6F9" points="15.044,22.222 16.377,20.888 12.374,16.885 16.377,12.882 15.044,11.55 9.708,16.885 11.04,18.219
+								11.042,18.219 "/>
+							</svg>
+						</div>
+
+						<!-- CTA Slider Nav - Next -->
+						<div class="cta_slider_nav cta_slider_next">
+							<svg version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+							width="28px" height="33px" viewBox="0 0 28 33" enable-background="new 0 0 28 33" xml:space="preserve">
+								<defs>
+									<linearGradient id='cta_grad_next'>
+										<stop offset='0%' stop-color='#fa9e1b'/>
+										<stop offset='100%' stop-color='#8d4fff'/>
+									</linearGradient>
+								</defs>
+							<path class="nav_path" fill="#F3F6F9" d="M19,0H9C4.029,0,0,4.029,0,9v15c0,4.971,4.029,9,9,9h10c4.97,0,9-4.029,9-9V9C28,4.029,23.97,0,19,0z
+							M26,23.091C26,27.459,22.545,31,18.285,31H9.714C5.454,31,2,27.459,2,23.091V9.909C2,5.541,5.454,2,9.714,2h8.571
+							C22.545,2,26,5.541,26,9.909V23.091z"/>
+							<polygon class="nav_arrow" fill="#F3F6F9" points="13.044,11.551 11.71,12.885 15.714,16.888 11.71,20.891 13.044,22.224 18.379,16.888 17.048,15.554
+							17.046,15.554 "/>
+							</svg>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Offers -->
+
+	<div class="offers">
+		<div class="container">
+			<div class="row">
+				<div class="col text-center">
+					<h2 class="section_title">the best offers with rooms</h2>
+				</div>
+			</div>
+			<div class="row offers_items">
+
+				<!-- Offers Item -->
+				<div class="col-lg-6 offers_col">
+					<div class="offers_item">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="offers_image_container">
+									<!-- Image by https://unsplash.com/@kensuarez -->
+									<div class="offers_image_background" style="
+									background-image:url({%static 'images/offer_1.jpg'%})"></div>
+									<div class="offer_name"><a href="#">grand castle</a></div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="offers_content">
+									<div class="offers_price">Rs700<span>per night</span></div>
+									<div class="rating_r rating_r_4 offers_rating">
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+									</div>
+									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
+									<div class="offers_icons">
+										<ul class="offers_icons_list">
+											<li class="offers_icons_item"><img src="{%static 'images/post.png'%}" alt=""></li>
+											<li class="offers_icons_item"><img src="{%static 'images/compass.png'%}" alt=""></li>
+											<li class="offers_icons_item"><img src="{%static 'images/bicycle.png'%}" alt=""></li>
+											<li class="offers_icons_item"><img src="{%static 'images/sailboat.png'%}" alt=""></li>
+										</ul>
+									</div>
+									<div class="offers_link"><a href="offers.html">read more</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Offers Item -->
+				<div class="col-lg-6 offers_col">
+					<div class="offers_item">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="offers_image_container">
+									<!-- Image by Egzon Bytyqi -->
+									<div class="offers_image_background" style="background-image:url({%static 'images/offer_2.jpg'%})"></div>
+									<div class="offer_name"><a href="#">turkey hills</a></div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="offers_content">
+									<div class="offers_price">Rs5000<span>per night</span></div>
+									<div class="rating_r rating_r_4 offers_rating">
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+									</div>
+									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
+									<div class="offers_icons">
+										<ul class="offers_icons_list">
+											<li class="offers_icons_item"><img src="{%static 'images/post.png'%}" alt=""></li>
+											<li class="offers_icons_item"><img src="{%static 'images/compass.png'%}" alt=""></li>
+											<li class="offers_icons_item"><img src="{%static 'images/bicycle.png'%}" alt=""></li>
+											<li class="offers_icons_item"><img src="{%static 'images/sailboat.png'%}" alt=""></li>
+										</ul>
+									</div>
+									<div class="offers_link"><a href="offers.html">read more</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Offers Item -->
+				<div class="col-lg-6 offers_col">
+					<div class="offers_item">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="offers_image_container">
+									<!-- Image by https://unsplash.com/@nevenkrcmarek -->
+									<div class="offers_image_background" style="background-image:url({%static 'images/offer_3.jpg'%})"></div>
+									<div class="offer_name"><a href="#">island dream</a></div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="offers_content">
+									<div class="offers_price">Rs900<span>per night</span></div>
+									<div class="rating_r rating_r_4 offers_rating">
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+									</div>
+									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
+									<div class="offers_icons">
+										<ul class="offers_icons_list">
+											<li class="offers_icons_item"><img src="{%static 'images/post.png'%}" alt=""></li>
+											<li class="offers_icons_item"><img src="{%static 'images/compass.png'%}" alt=""></li>
+											<li class="offers_icons_item"><img src="{%static 'images/bicycle.png'%}" alt=""></li>
+											<li class="offers_icons_item"><img src="{%static 'images/sailboat.png'%}" alt=""></li>
+										</ul>
+									</div>
+									<div class="offers_link"><a href="offers.html">read more</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Offers Item -->
+				<div class="col-lg-6 offers_col">
+					<div class="offers_item">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="offers_image_container">
+									<!-- Image by https://unsplash.com/@mantashesthaven -->
+									<div class="offers_image_background" style="background-image:url({%static 'images/offer_4.jpg'%})"></div>
+									<div class="offer_name"><a href="#">travel light</a></div>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="offers_content">
+									<div class="offers_price">Rs350<span>per night</span></div>
+									<div class="rating_r rating_r_4 offers_rating">
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+										<i></i>
+									</div>
+									<p class="offers_text">Suspendisse potenti. In faucibus massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor.</p>
+									<div class="offers_icons">
+										<ul class="offers_icons_list">
+											<li class="offers_icons_item"><img src="{%static 'images/post.png'%}" alt=""></li>
+											<li class="offers_icons_item"><img src="{%static 'images/compass.png'%}" alt=""></li>
+											<li class="offers_icons_item"><img src="{%static 'images/bicycle.png'%}" alt=""></li>
+											<li class="offers_icons_item"><img src="{%static 'images/sailboat.png'%}" alt=""></li>
+										</ul>
+									</div>
+									<div class="offers_link"><a href="offers.html">read more</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Testimonials -->
+
+<!--	<div class="testimonials">-->
+<!--    <div class="test_border"></div>-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--            <div class="col text-center">-->
+<!--                <h2 class="section_title">What Our Clients Say About Us</h2>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="row">-->
+<!--            <div class="col">-->
+<!--                &lt;!&ndash; Testimonials Slider &ndash;&gt;-->
+<!--                <div class="test_slider_container">-->
+<!--                    <div class="owl-carousel owl-theme test_slider">-->
+<!--                        &lt;!&ndash; Testimonial Items &ndash;&gt;-->
+<!--                        {% for testimonial in testimonials %}-->
+<!--                        <div class="owl-item">-->
+<!--                            <div class="test_item">-->
+<!--                                <div class="test_image">-->
+<!--                                    <img src="{% static testimonial.image %}" alt="Testimonial Image">-->
+<!--                                </div>-->
+<!--                                <div class="test_icon">-->
+<!--                                    <img src="{% static testimonial.icon %}" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="test_content_container">-->
+<!--                                    <div class="test_content">-->
+<!--                                        <div class="test_item_info">-->
+<!--                                            <div class="test_name">{{ testimonial.name }}</div>-->
+<!--                                            <div class="test_date">{{ testimonial.date }}</div>-->
+<!--                                        </div>-->
+<!--                                        <div class="test_quote_title">"{{ testimonial.title }}"</div>-->
+<!--                                        <p class="test_quote_text">"{{ testimonial.text }}"</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        {% endfor %}-->
+<!--                    </div>-->
+
+<!--                    &lt;!&ndash; Testimonials Slider Navigation &ndash;&gt;-->
+<!--                    <div class="test_slider_nav test_slider_prev">-->
+<!--                        <svg width="28px" height="33px" viewBox="0 0 28 33">-->
+<!--                            <path class="nav_path" fill="#F3F6F9" d="M19,0H9C4.029,0,0,4.029,0,9v15c0,4.971,4.029,9,9,9h10c4.97,0,9-4.029,9-9V9C28,4.029,23.97,0,19,0z"/>-->
+<!--                            <polygon class="nav_arrow" fill="#F3F6F9" points="15.044,22.222 16.377,20.888 12.374,16.885 16.377,12.882 15.044,11.55 9.708,16.885"/>-->
+<!--                        </svg>-->
+<!--                    </div>-->
+<!--                    <div class="test_slider_nav test_slider_next">-->
+<!--                        <svg width="28px" height="33px" viewBox="0 0 28 33">-->
+<!--                            <path class="nav_path" fill="#F3F6F9" d="M19,0H9C4.029,0,0,4.029,0,9v15c0,4.971,4.029,9,9,9h10c4.97,0,9-4.029,9-9V9C28,4.029,23.97,0,19,0z"/>-->
+<!--                            <polygon class="nav_arrow" fill="#F3F6F9" points="13.044,11.551 11.71,12.885 15.714,16.888 11.71,20.891 13.044,22.224 18.379,16.888"/>-->
+<!--                        </svg>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--	<div class="trending">-->
+<!--		<div class="container">-->
+<!--			<div class="row">-->
+<!--				<div class="col text-center">-->
+<!--					<h2 class="section_title">trending now</h2>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div class="row trending_container">-->
+
+<!--				&lt;!&ndash; Trending Item &ndash;&gt;-->
+<!--				<div class="col-lg-3 col-sm-6">-->
+<!--					<div class="trending_item clearfix">-->
+<!--						<div class="trending_image"><img src="{%static 'images/trend_1.png'%}" alt="https://unsplash.com/@fransaraco"></div>-->
+<!--						<div class="trending_content">-->
+<!--							<div class="trending_title"><a href="#">grand hotel</a></div>-->
+<!--							<div class="trending_price">From Rs1802</div>-->
+<!--							<div class="trending_location">madrid, spain</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--				&lt;!&ndash; Trending Item &ndash;&gt;-->
+<!--				<div class="col-lg-3 col-sm-6">-->
+<!--					<div class="trending_item clearfix">-->
+<!--						<div class="trending_image"><img src="{%static 'images/trend_2.png'%}" alt="https://unsplash.com/@grovemade"></div>-->
+<!--						<div class="trending_content">-->
+<!--							<div class="trending_title"><a href="#">mars hotel</a></div>-->
+<!--							<div class="trending_price">From Rs 1082</div>-->
+<!--							<div class="trending_location">madrid, spain</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--				&lt;!&ndash; Trending Item &ndash;&gt;-->
+<!--				<div class="col-lg-3 col-sm-6">-->
+<!--					<div class="trending_item clearfix">-->
+<!--						<div class="trending_image"><img src="{%static 'images/trend_3.png'%}" alt="https://unsplash.com/@jbriscoe"></div>-->
+<!--						<div class="trending_content">-->
+<!--							<div class="trending_title"><a href="#">queen hotel</a></div>-->
+<!--							<div class="trending_price">From Rs 1082</div>-->
+<!--							<div class="trending_location">madrid, spain</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--				&lt;!&ndash; Trending Item &ndash;&gt;-->
+<!--				<div class="col-lg-3 col-sm-6">-->
+<!--					<div class="trending_item clearfix">-->
+<!--						<div class="trending_image"><img src="{%static 'images/trend_4.png'%}" alt="https://unsplash.com/@oowgnuj"></div>-->
+<!--						<div class="trending_content">-->
+<!--							<div class="trending_title"><a href="#">mars hotel</a></div>-->
+<!--							<div class="trending_price">From Rs 1082</div>-->
+<!--							<div class="trending_location">madrid, spain</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--				&lt;!&ndash; Trending Item &ndash;&gt;-->
+<!--				<div class="col-lg-3 col-sm-6">-->
+<!--					<div class="trending_item clearfix">-->
+<!--						<div class="trending_image"><img src="{%static 'images/trend_5.png'%}" alt="https://unsplash.com/@mindaugas"></div>-->
+<!--						<div class="trending_content">-->
+<!--							<div class="trending_title"><a href="#">grand hotel</a></div>-->
+<!--							<div class="trending_price">From Rs 1082</div>-->
+<!--							<div class="trending_location">madrid, spain</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--				&lt;!&ndash; Trending Item &ndash;&gt;-->
+<!--				<div class="col-lg-3 col-sm-6">-->
+<!--					<div class="trending_item clearfix">-->
+<!--						<div class="trending_image"><img src="{%static 'images/trend_6.png'%}" alt="https://unsplash.com/@itsnwa"></div>-->
+<!--						<div class="trending_content">-->
+<!--							<div class="trending_title"><a href="#">mars hotel</a></div>-->
+<!--							<div class="trending_price">From Rs 1082</div>-->
+<!--							<div class="trending_location">madrid, spain</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--				&lt;!&ndash; Trending Item &ndash;&gt;-->
+<!--				<div class="col-lg-3 col-sm-6">-->
+<!--					<div class="trending_item clearfix">-->
+<!--						<div class="trending_image"><img src="{%static 'images/trend_7.png'%}" alt="https://unsplash.com/@rktkn"></div>-->
+<!--						<div class="trending_content">-->
+<!--							<div class="trending_title"><a href="#">queen hotel</a></div>-->
+<!--							<div class="trending_price">From Rs 1082</div>-->
+<!--							<div class="trending_location">madrid, spain</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--				&lt;!&ndash; Trending Item &ndash;&gt;-->
+<!--				<div class="col-lg-3 col-sm-6">-->
+<!--					<div class="trending_item clearfix">-->
+<!--						<div class="trending_image"><img src="{%static 'images/trend_8.png'%}" alt="https://unsplash.com/@thoughtcatalog"></div>-->
+<!--						<div class="trending_content">-->
+<!--							<div class="trending_title"><a href="#">mars hotel</a></div>-->
+<!--							<div class="trending_price">From Rs 1820</div>-->
+<!--							<div class="trending_location">madrid, spain</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+
+	<div class="contact">
+		<div class="contact_background" style="background-image:url({%static 'images/contact.png'%})"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5">
+					<div class="contact_image">
+						
+					</div>
+				</div>
+				<div class="col-lg-7">
+					<div class="contact_form_container">
+						<div class="contact_title">get in touch</div>
+						<form action="contact" id="contact_form" method="post" class="contact_form text-center">
+							{% csrf_token %}
+							<input type="text" id="contact_form_name" class="contact_form_name input_field" placeholder="Name" name="uname" required="required" data-error="Name is required.">
+							<input type="text" id="contact_form_email" class="contact_form_email input_field" placeholder="E-mail" name="email" required="required" data-error="Email is required.">
+							<input type="text" id="contact_form_subject" class="contact_form_subject input_field" placeholder="Subject" required="required" data-error="Subject is required.">
+							<textarea id="contact_form_message" class="text_field contact_form_message" name="message" rows="4" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
+							<a href="http://127.0.0.1:8000/" class="form_submit_button button trans_200">Send Message<span></span><span></span><span></span></a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+
+				<!-- Footer Column -->
+				<div class="col-lg-3 footer_column">
+					<div class="footer_col">
+						<div class="footer_content footer_about">
+							<div class="logo_container footer_logo">
+								<div class="logo"><a href="#"><img src="{%static 'images/logo1.png'%}" alt="">travelix</a></div>
+							</div>
+							<p class="footer_about_text">Explore the World with Us
+"At TRAVELIX, we make every journey memorable with curated travel packages for exotic destinations, luxury getaways, and budget-friendly adventures. Discover breathtaking places and create unforgettable memories with us!"</p>
+							<ul class="footer_social_list">
+								<li class="footer_social_item"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+								<li class="footer_social_item"><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+								<li class="footer_social_item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li class="footer_social_item"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li class="footer_social_item"><a href="#"><i class="fa fa-behance"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Footer Column -->
+				<div class="col-lg-3 footer_column">
+					<div class="footer_col">
+						<div class="footer_title">blog posts</div>
+						<div class="footer_content footer_blog">
+							
+							<!-- Footer blog item -->
+							<div class="footer_blog_item clearfix">
+								<div class="footer_blog_image"><img src="{%static 'images/footer_blog_1.jpg'%}" alt="https://unsplash.com/@avidenov"></div>
+								<div class="footer_blog_content">
+									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
+									<div class="footer_blog_date">Nov 29, 2017</div>
+								</div>
+							</div>
+							
+							<!-- Footer blog item -->
+							<div class="footer_blog_item clearfix">
+								<div class="footer_blog_image"><img src="{%static 'images/footer_blog_2.jpg'%}" alt="https://unsplash.com/@deannaritchie"></div>
+								<div class="footer_blog_content">
+									<div class="footer_blog_title"><a href="blog.html">New destinations for you</a></div>
+									<div class="footer_blog_date">Nov 29, 2017</div>
+								</div>
+							</div>
+
+							<!-- Footer blog item -->
+							<div class="footer_blog_item clearfix">
+								<div class="footer_blog_image"><img src="{%static 'images/footer_blog_3.jpg'%}" alt="https://unsplash.com/@bergeryap87"></div>
+								<div class="footer_blog_content">
+									<div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
+									<div class="footer_blog_date">Nov 29, 2017</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<!-- Footer Column -->
+				<div class="col-lg-3 footer_column">
+					<div class="footer_col">
+						<div class="footer_title">tags</div>
+						<div class="footer_content footer_tags">
+							<ul class="tags_list clearfix">
+								<li class="tag_item"><a href="#">design</a></li>
+								<li class="tag_item"><a href="#">fashion</a></li>
+								<li class="tag_item"><a href="#">music</a></li>
+								<li class="tag_item"><a href="#">video</a></li>
+								<li class="tag_item"><a href="#">party</a></li>
+								<li class="tag_item"><a href="#">photography</a></li>
+								<li class="tag_item"><a href="#">adventure</a></li>
+								<li class="tag_item"><a href="#">travel</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Footer Column -->
+				<div class="col-lg-3 footer_column">
+					<div class="footer_col">
+						<div class="footer_title">contact info</div>
+						<div class="footer_content footer_contact">
+							<ul class="contact_info_list">
+								<li class="contact_info_item d-flex flex-row">
+									<div><div class="contact_info_icon"><img src="{%static 'images/placeholder.svg'%}" alt=""></div></div>
+									<div class="contact_info_text">4127 Raoul Wallenber 45b-c Dhule, Maharashtra</div>
+								</li>
+								<li class="contact_info_item d-flex flex-row">
+									<div><div class="contact_info_icon"><img src="{%static 'images/phone-call.svg'%}" alt=""></div></div>
+									<div class="contact_info_text">2556-808-8613</div>
+								</li>
+								<li class="contact_info_item d-flex flex-row">
+									<div><div class="contact_info_icon"><img src="{%static 'images/message.svg'%}" alt=""></div></div>
+									<div class="contact_info_text"><a href="mailto:contactme@gmail.com?Subject=Hello" target="_top">contactme@gmail.com</a></div>
+								</li>
+								<li class="contact_info_item d-flex flex-row">
+									<div><div class="contact_info_icon"><img src="{%static 'images/planet-earth.svg'%}" alt=""></div></div>
+									<div class="contact_info_text"><a href="http://127.0.0.1:8000/">www.travelix.com</a></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+
+	<!-- Copyright -->
+
+	<div class="copyright bg-purple text-white py-3">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="row w-100 text-center">
+            <div class="col-lg-12">
+                <div class="footer_nav_container d-flex justify-content-center align-items-center">
+                    <div class="footer_nav">
+                        <ul class="footer_nav_list d-flex list-unstyled m-0">
+                            <li class="footer_nav_item px-3">
+                                <a href="http://127.0.0.1:8000/" class="text-white text-decoration-none">Home</a>
+                            </li>
+                            <li class="footer_nav_item px-3">
+                                <a href="http://127.0.0.1:8000/about" class="text-white text-decoration-none">About Us</a>
+                            </li>
+                            <li class="footer_nav_item px-3">
+                                <a href="http://127.0.0.1:8000/offers" class="text-white text-decoration-none">Offers</a>
+                            </li>
+                            <li class="footer_nav_item px-3">
+                                <a href="http://127.0.0.1:8000/blog" class="text-white text-decoration-none">News</a>
+                            </li>
+                            <li class="footer_nav_item px-3">
+                                <a href="http://127.0.0.1:8000/contact" class="text-white text-decoration-none">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+      .bg-violet {
+        background-color: #8A2BE2 !important; /* Violet color */
+    }
+</style>
+
+
+</div>
+</div>
+
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+
+
+	<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+    // Navbar Animation
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            document.querySelector('.navbar').classList.add('scrolled');
+        } else {
+            document.querySelector('.navbar').classList.remove('scrolled');
+        }
+    });
+
+    // Scroll Animations
+    const observerOptions = {
+        root: null,
+        threshold: 0.1,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements with animation classes
+    document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right').forEach(element => {
+        observer.observe(element);
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+       // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            document.querySelector('.navbar').classList.add('scrolled');
+        } else {
+            document.querySelector('.navbar').classList.remove('scrolled');
+        }
+    });
+</script>
+</body>
+
+</html>
