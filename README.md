@@ -112,6 +112,6 @@ Nikhil Mali
 
 🌐 Portfolio: [your-portfolio-link]
 
-💼 LinkedIn: [your-linkedin-link]
+💼 LinkedIn: [https://www.linkedin.com/in/nikhil-mali-4038212ab/]
 
 📧 Email: nikhilmali27103@gmail.com
