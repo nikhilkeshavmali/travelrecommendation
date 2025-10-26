@@ -110,8 +110,10 @@ This project is licensed under the MIT License – free to use and modify.
 
 Nikhil Mali
 
-🌐 Portfolio: [your-portfolio-link]
+🌐 Portfolio: [https://nikhil-portfolio-bay.vercel.app/]
 
 💼 LinkedIn: [https://www.linkedin.com/in/nikhil-mali-4038212ab/]
 
 📧 Email: nikhilmali27103@gmail.com
+
+
