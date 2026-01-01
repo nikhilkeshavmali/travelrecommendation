@@ -33,7 +33,7 @@ Tools: PyCharm, Git, Postman
 
 Clone the repository
 
-git clone https://github.com/your-username/travel-recommendation-system.git
+git clone https://github.com/nikhilkeshavmali/travel-recommendation-system.git
 cd travel-recommendation-system
 
 
