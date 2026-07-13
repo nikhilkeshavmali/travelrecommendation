@@ -9,7 +9,7 @@
 [![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 
-[Live Demo](#) · [Report Bug](#) · [Request Feature](#)
+ [Report Bug](#) · [Request Feature](#)
 
 </div>
 
